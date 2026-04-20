@@ -111,7 +111,56 @@ def get_candles(symbol: str, timeframe: str, n: int = 200) -> pd.DataFrame:
 
 
 # =============================================================================
-# 3. PLACEHOLDERS — Módulos SMC futuros
+# 3. HELPERS DE ANÁLISIS SMC (Smart Money Concepts)
+# =============================================================================
+
+def detectar_swings(df: pd.DataFrame, window: int = 2) -> pd.DataFrame:
+    """
+    Identifica Swing Highs y Swing Lows (pivotes estructurales) en las velas.
+
+    Un Swing High es una vela cuyo 'high' es estrictamente mayor que los
+    `window` highs a su izquierda y a su derecha. Un Swing Low es lo opuesto
+    con 'low'. Son la base de toda la estructura SMC: BOS, CHoCH y Order
+    Blocks se construyen sobre estos pivotes.
+
+    Args:
+        df:     DataFrame de velas con columnas 'high' y 'low'.
+        window: Velas a cada lado del pivote para validarlo (default: 2).
+                Más grande = swings más significativos pero menos frecuentes.
+
+    Returns:
+        Copia del DataFrame con dos columnas booleanas nuevas:
+          - swing_high: True si la vela es un máximo estructural.
+          - swing_low:  True si la vela es un mínimo estructural.
+    """
+    df = df.copy()
+    df["swing_high"] = False
+    df["swing_low"] = False
+
+    # Recorrer solo las velas que tengan `window` vecinos a cada lado
+    for i in range(window, len(df) - window):
+        high_actual = df["high"].iloc[i]
+        low_actual  = df["low"].iloc[i]
+
+        # Ventanas de comparación a izquierda y derecha (excluyendo la vela i)
+        highs_izq = df["high"].iloc[i - window:i]
+        highs_der = df["high"].iloc[i + 1:i + 1 + window]
+        lows_izq  = df["low"].iloc[i - window:i]
+        lows_der  = df["low"].iloc[i + 1:i + 1 + window]
+
+        # Swing High: máximo estricto comparado con los vecinos
+        if high_actual > highs_izq.max() and high_actual > highs_der.max():
+            df.at[df.index[i], "swing_high"] = True
+
+        # Swing Low: mínimo estricto comparado con los vecinos
+        if low_actual < lows_izq.min() and low_actual < lows_der.min():
+            df.at[df.index[i], "swing_low"] = True
+
+    return df
+
+
+# =============================================================================
+# 4. PLACEHOLDERS — Módulos SMC futuros
 # =============================================================================
 
 def analizar_liquidez_smc(df: pd.DataFrame) -> dict:
@@ -169,7 +218,7 @@ def ejecutar_orden_riesgo(symbol: str, direccion: str, riesgo_pct: float = 1.0) 
 
 
 # =============================================================================
-# 4. PUNTO DE ENTRADA
+# 5. PUNTO DE ENTRADA
 # =============================================================================
 
 if __name__ == "__main__":
@@ -179,11 +228,22 @@ if __name__ == "__main__":
     # Paso 2: Descargar datos de prueba
     df_xauusd = get_candles("XAUUSD", "H1", n=200)
 
-    # Paso 3: Mostrar las últimas 5 velas para verificar el pipeline
     if not df_xauusd.empty:
+        # Paso 3: Mostrar las últimas 5 velas para verificar el pipeline
         print("\n--- Últimas 5 velas (XAUUSD H1) ---")
         print(df_xauusd[["time", "open", "high", "low", "close", "tick_volume"]].tail())
 
-    # Paso 4: Cerrar la conexión limpiamente al terminar
+        # Paso 4: Detectar swings estructurales
+        df_con_swings = detectar_swings(df_xauusd, window=2)
+        n_highs = df_con_swings["swing_high"].sum()
+        n_lows  = df_con_swings["swing_low"].sum()
+        print(f"\n[INFO] Swings detectados — Highs: {n_highs} | Lows: {n_lows}")
+
+        # Mostrar los últimos 5 swings encontrados (highs y lows combinados)
+        swings = df_con_swings[df_con_swings["swing_high"] | df_con_swings["swing_low"]]
+        print("\n--- Últimos 5 swings ---")
+        print(swings[["time", "high", "low", "swing_high", "swing_low"]].tail())
+
+    # Paso 5: Cerrar la conexión limpiamente al terminar
     mt5.shutdown()
     print("\n[OK] Conexión MT5 cerrada.")
