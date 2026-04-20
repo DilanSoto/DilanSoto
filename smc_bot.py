@@ -8,6 +8,7 @@
 import sys
 import MetaTrader5 as mt5
 import pandas as pd
+import plotly.graph_objects as go
 
 # -----------------------------------------------------------------------------
 # CONSTANTES GLOBALES
@@ -160,7 +161,76 @@ def detectar_swings(df: pd.DataFrame, window: int = 2) -> pd.DataFrame:
 
 
 # =============================================================================
-# 4. PLACEHOLDERS — Módulos SMC futuros
+# 4. VISUALIZACIÓN (Plotly)
+# =============================================================================
+
+def graficar_smc(df: pd.DataFrame, titulo: str = "Análisis SMC") -> None:
+    """
+    Dibuja un gráfico de velas interactivo con las zonas SMC detectadas.
+
+    Renderiza un candlestick chart con Plotly y superpone marcadores para
+    cada concepto SMC que esté presente como columna booleana en el DataFrame
+    (swing_high, swing_low, y en el futuro: bos, choch, order_block, fvg).
+
+    El gráfico se abre automáticamente en el navegador predeterminado.
+
+    Args:
+        df:     DataFrame procesado (salida de detectar_swings y siguientes).
+                Debe contener al menos: time, open, high, low, close.
+        titulo: Título a mostrar arriba del gráfico.
+    """
+    fig = go.Figure()
+
+    # Capa 1: Velas japonesas (candlestick)
+    fig.add_trace(go.Candlestick(
+        x=df["time"],
+        open=df["open"],
+        high=df["high"],
+        low=df["low"],
+        close=df["close"],
+        name="Precio",
+        increasing_line_color="#26a69a",  # verde alcista
+        decreasing_line_color="#ef5350",  # rojo bajista
+    ))
+
+    # Capa 2: Swing Highs (triángulo rojo apuntando hacia abajo, arriba de la vela)
+    if "swing_high" in df.columns:
+        sh = df[df["swing_high"]]
+        fig.add_trace(go.Scatter(
+            x=sh["time"],
+            y=sh["high"] * 1.001,  # ligeramente arriba del high para que se vea
+            mode="markers",
+            marker=dict(symbol="triangle-down", color="red", size=12),
+            name="Swing High",
+        ))
+
+    # Capa 3: Swing Lows (triángulo verde apuntando hacia arriba, debajo de la vela)
+    if "swing_low" in df.columns:
+        sl = df[df["swing_low"]]
+        fig.add_trace(go.Scatter(
+            x=sl["time"],
+            y=sl["low"] * 0.999,  # ligeramente abajo del low
+            mode="markers",
+            marker=dict(symbol="triangle-up", color="lime", size=12),
+            name="Swing Low",
+        ))
+
+    # Layout: tema oscuro, sin rangeslider, responsive
+    fig.update_layout(
+        title=titulo,
+        xaxis_title="Tiempo (UTC)",
+        yaxis_title="Precio",
+        template="plotly_dark",
+        xaxis_rangeslider_visible=False,
+        height=700,
+    )
+
+    # Abrir en el navegador
+    fig.show()
+
+
+# =============================================================================
+# 5. PLACEHOLDERS — Módulos SMC futuros
 # =============================================================================
 
 def analizar_liquidez_smc(df: pd.DataFrame) -> dict:
@@ -218,7 +288,7 @@ def ejecutar_orden_riesgo(symbol: str, direccion: str, riesgo_pct: float = 1.0) 
 
 
 # =============================================================================
-# 5. PUNTO DE ENTRADA
+# 6. PUNTO DE ENTRADA
 # =============================================================================
 
 if __name__ == "__main__":
@@ -244,6 +314,9 @@ if __name__ == "__main__":
         print("\n--- Últimos 5 swings ---")
         print(swings[["time", "high", "low", "swing_high", "swing_low"]].tail())
 
-    # Paso 5: Cerrar la conexión limpiamente al terminar
+        # Paso 5: Visualizar en el navegador
+        graficar_smc(df_con_swings, titulo="XAUUSD H1 — Swings SMC")
+
+    # Paso 6: Cerrar la conexión limpiamente al terminar
     mt5.shutdown()
     print("\n[OK] Conexión MT5 cerrada.")
