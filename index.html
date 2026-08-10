@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathBusiness - Matemáticas para Administración de Empresas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navegación Principal -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <i class="fas fa-calculator"></i>
+            <span>MathBusiness</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio" class="active">Inicio</a></li>
+            <li><a href="#financieras">Finanzas</a></li>
+            <li><a href="#estadistica">Estadística</a></li>
+            <li><a href="#costos">Costos</a></li>
+            <li><a href="#porcentajes">Porcentajes</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Aprende Matemáticas para <span class="highlight">Negocios</span></h1>
+            <p>Domina los conceptos matemáticos esenciales para la administración de empresas con explicaciones claras del <strong>cómo</strong>, <strong>dónde</strong> y <strong>por qué</strong>.</p>
+            <div class="hero-buttons">
+                <a href="#financieras" class="btn btn-primary">Comenzar a Aprender</a>
+                <a href="#sobre" class="btn btn-secondary">Conocer Más</a>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            <div class="floating-icons">
+                <i class="fas fa-chart-line"></i>
+                <i class="fas fa-percentage"></i>
+                <i class="fas fa-coins"></i>
+                <i class="fas fa-chart-pie"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarjetas de Módulos -->
+    <section id="modulos" class="modules-overview">
+        <h2>Módulos de Aprendizaje</h2>
+        <div class="modules-grid">
+            <div class="module-card" onclick="navigateTo('financieras')">
+                <div class="card-icon finance">
+                    <i class="fas fa-money-bill-trend-up"></i>
+                </div>
+                <h3>Matemáticas Financieras</h3>
+                <p>Interés simple, compuesto, valor presente y futuro, anualidades.</p>
+                <span class="card-link">Explorar <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="module-card" onclick="navigateTo('estadistica')">
+                <div class="card-icon stats">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Estadística</h3>
+                <p>Media, mediana, moda, desviación estándar, análisis de datos.</p>
+                <span class="card-link">Explorar <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="module-card" onclick="navigateTo('costos')">
+                <div class="card-icon costs">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Análisis de Costos</h3>
+                <p>Punto de equilibrio, margen de contribución, costos fijos y variables.</p>
+                <span class="card-link">Explorar <i class="fas fa-arrow-right"></i></span>
+            </div>
+            <div class="module-card" onclick="navigateTo('porcentajes')">
+                <div class="card-icon percent">
+                    <i class="fas fa-percent"></i>
+                </div>
+                <h3>Porcentajes</h3>
+                <p>Aumentos, descuentos, variaciones porcentuales, proporciones.</p>
+                <span class="card-link">Explorar <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo: Matemáticas Financieras -->
+    <section id="financieras" class="module-section">
+        <div class="module-header">
+            <h2><i class="fas fa-money-bill-trend-up"></i> Matemáticas Financieras</h2>
+            <p>Herramientas esenciales para la toma de decisiones financieras en los negocios</p>
+        </div>
+
+        <!-- Interés Simple -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-seedling"></i> Interés Simple</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <!-- Explicación Teórica -->
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'is-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'is-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'is-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'is-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="is-que">
+                    <div class="info-box">
+                        <h4>Definición</h4>
+                        <p>El <strong>interés simple</strong> es el rendimiento o costo que se calcula únicamente sobre el capital inicial (principal), sin considerar los intereses generados anteriormente.</p>
+                        <div class="formula-box">
+                            <span class="formula">I = C × i × t</span>
+                            <span class="formula-desc">Monto Final: M = C + I = C(1 + i × t)</span>
+                        </div>
+                        <ul class="variable-list">
+                            <li><strong>I</strong> = Interés generado</li>
+                            <li><strong>C</strong> = Capital inicial (principal)</li>
+                            <li><strong>i</strong> = Tasa de interés (en decimal)</li>
+                            <li><strong>t</strong> = Tiempo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="is-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué funciona así?</h4>
+                        <p>El interés simple representa la <strong>compensación por el uso del dinero</strong> durante un período determinado. Funciona de manera lineal porque:</p>
+                        <ul>
+                            <li><strong>Proporcionalidad directa:</strong> A mayor capital, mayor interés. A mayor tiempo, mayor interés.</li>
+                            <li><strong>Base constante:</strong> Siempre se calcula sobre el mismo capital inicial, lo que hace el cálculo predecible y transparente.</li>
+                            <li><strong>Simplicidad:</strong> Permite planificar pagos fijos y predecibles.</li>
+                        </ul>
+                        <div class="concept-visual">
+                            <div class="visual-bar">
+                                <div class="bar-segment capital">Capital</div>
+                                <div class="bar-segment interest">+Interés</div>
+                                <div class="bar-segment interest">+Interés</div>
+                                <div class="bar-segment interest">+Interés</div>
+                            </div>
+                            <p class="visual-caption">El interés se suma de forma constante en cada período</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="is-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="steps-container">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Identificar los datos</h5>
+                                    <p>Determina el capital (C), la tasa de interés (i) y el tiempo (t). Asegúrate de que la tasa y el tiempo estén en las mismas unidades.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Convertir la tasa</h5>
+                                    <p>Si la tasa está en porcentaje, divídela entre 100. Ejemplo: 5% = 0.05</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Aplicar la fórmula</h5>
+                                    <p>Multiplica: I = C × i × t</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>Calcular monto final</h5>
+                                    <p>Suma el interés al capital: M = C + I</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="is-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-hand-holding-usd"></i>
+                                <h5>Préstamos a corto plazo</h5>
+                                <p>Créditos comerciales y préstamos entre empresas con plazos menores a un año.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <h5>Pagarés y letras</h5>
+                                <p>Instrumentos de deuda a corto plazo utilizados en transacciones comerciales.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-clock"></i>
+                                <h5>Pagos atrasados</h5>
+                                <p>Cálculo de intereses moratorios por pagos fuera de plazo.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-piggy-bank"></i>
+                                <h5>Inversiones simples</h5>
+                                <p>Depósitos a plazo fijo con rendimiento simple.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora Interactiva -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Interés Simple</h4>
+                    <div class="calculator-grid">
+                        <div class="calc-input">
+                            <label for="is-capital">Capital Inicial ($)</label>
+                            <input type="number" id="is-capital" placeholder="10000" value="10000">
+                        </div>
+                        <div class="calc-input">
+                            <label for="is-tasa">Tasa de Interés (%)</label>
+                            <input type="number" id="is-tasa" placeholder="5" value="5" step="0.1">
+                        </div>
+                        <div class="calc-input">
+                            <label for="is-tiempo">Tiempo</label>
+                            <input type="number" id="is-tiempo" placeholder="2" value="2">
+                        </div>
+                        <div class="calc-input">
+                            <label for="is-periodo">Período</label>
+                            <select id="is-periodo">
+                                <option value="años">Años</option>
+                                <option value="meses">Meses</option>
+                                <option value="días">Días</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularInteresSimple()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="is-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interés Compuesto -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-tree"></i> Interés Compuesto</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'ic-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'ic-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'ic-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'ic-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="ic-que">
+                    <div class="info-box">
+                        <h4>Definición</h4>
+                        <p>El <strong>interés compuesto</strong> es aquel que se calcula sobre el capital inicial más los intereses acumulados de períodos anteriores. Es el "interés sobre interés".</p>
+                        <div class="formula-box">
+                            <span class="formula">M = C(1 + i)ⁿ</span>
+                            <span class="formula-desc">Interés: I = M - C</span>
+                        </div>
+                        <ul class="variable-list">
+                            <li><strong>M</strong> = Monto final (capital + intereses)</li>
+                            <li><strong>C</strong> = Capital inicial</li>
+                            <li><strong>i</strong> = Tasa de interés por período</li>
+                            <li><strong>n</strong> = Número de períodos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ic-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué funciona así?</h4>
+                        <p>El interés compuesto refleja el <strong>crecimiento exponencial</strong> del dinero porque:</p>
+                        <ul>
+                            <li><strong>Reinversión automática:</strong> Los intereses generan nuevos intereses.</li>
+                            <li><strong>Efecto multiplicador:</strong> Cada período tiene una base más grande para calcular.</li>
+                            <li><strong>Valor del tiempo:</strong> Mientras más tiempo, mayor es el efecto de la capitalización.</li>
+                        </ul>
+                        <div class="comparison-box">
+                            <h5>Comparación: Simple vs Compuesto</h5>
+                            <p>$10,000 al 10% anual por 5 años:</p>
+                            <div class="comparison-values">
+                                <div class="comp-item">
+                                    <span class="comp-label">Simple:</span>
+                                    <span class="comp-value">$15,000</span>
+                                </div>
+                                <div class="comp-item">
+                                    <span class="comp-label">Compuesto:</span>
+                                    <span class="comp-value highlight">$16,105.10</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ic-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="steps-container">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Identificar variables</h5>
+                                    <p>Capital (C), tasa (i), número de períodos (n) y frecuencia de capitalización.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Ajustar tasa y períodos</h5>
+                                    <p>Si capitaliza mensualmente: i = tasa anual/12, n = años × 12</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Calcular factor</h5>
+                                    <p>Calcula (1 + i)ⁿ usando calculadora o potencias.</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>Obtener monto final</h5>
+                                    <p>Multiplica: M = C × factor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ic-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-university"></i>
+                                <h5>Préstamos bancarios</h5>
+                                <p>Hipotecas, créditos automotrices y préstamos a largo plazo.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-chart-line"></i>
+                                <h5>Inversiones</h5>
+                                <p>Fondos de inversión, acciones con dividendos reinvertidos.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-credit-card"></i>
+                                <h5>Tarjetas de crédito</h5>
+                                <p>El saldo no pagado acumula intereses compuestos.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-building"></i>
+                                <h5>Valuación de empresas</h5>
+                                <p>Proyección del valor futuro de negocios e inversiones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Interés Compuesto</h4>
+                    <div class="calculator-grid">
+                        <div class="calc-input">
+                            <label for="ic-capital">Capital Inicial ($)</label>
+                            <input type="number" id="ic-capital" placeholder="10000" value="10000">
+                        </div>
+                        <div class="calc-input">
+                            <label for="ic-tasa">Tasa Anual (%)</label>
+                            <input type="number" id="ic-tasa" placeholder="10" value="10" step="0.1">
+                        </div>
+                        <div class="calc-input">
+                            <label for="ic-tiempo">Tiempo (años)</label>
+                            <input type="number" id="ic-tiempo" placeholder="5" value="5">
+                        </div>
+                        <div class="calc-input">
+                            <label for="ic-capitalizacion">Capitalización</label>
+                            <select id="ic-capitalizacion">
+                                <option value="1">Anual</option>
+                                <option value="2">Semestral</option>
+                                <option value="4">Trimestral</option>
+                                <option value="12" selected>Mensual</option>
+                                <option value="365">Diaria</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularInteresCompuesto()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="ic-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Valor Presente y Futuro -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-exchange-alt"></i> Valor Presente y Valor Futuro</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'vp-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'vp-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'vp-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'vp-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="vp-que">
+                    <div class="info-box">
+                        <h4>Definición</h4>
+                        <p><strong>Valor Futuro (VF):</strong> Es el valor que tendrá una cantidad de dinero en una fecha futura.</p>
+                        <p><strong>Valor Presente (VP):</strong> Es el valor actual de una cantidad de dinero que se recibirá en el futuro.</p>
+                        <div class="formula-box dual">
+                            <div class="formula-item">
+                                <span class="formula">VF = VP(1 + i)ⁿ</span>
+                                <span class="formula-label">Valor Futuro</span>
+                            </div>
+                            <div class="formula-item">
+                                <span class="formula">VP = VF / (1 + i)ⁿ</span>
+                                <span class="formula-label">Valor Presente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="vp-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué es importante?</h4>
+                        <p>El concepto del <strong>valor del dinero en el tiempo</strong> es fundamental porque:</p>
+                        <ul>
+                            <li><strong>Costo de oportunidad:</strong> El dinero hoy puede invertirse y generar rendimientos.</li>
+                            <li><strong>Inflación:</strong> El poder adquisitivo disminuye con el tiempo.</li>
+                            <li><strong>Riesgo:</strong> Existe incertidumbre sobre recibir el dinero futuro.</li>
+                            <li><strong>Preferencia temporal:</strong> Las personas prefieren tener el dinero ahora.</li>
+                        </ul>
+                        <div class="key-concept">
+                            <i class="fas fa-lightbulb"></i>
+                            <p><strong>Principio clave:</strong> Un peso hoy vale más que un peso mañana.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="vp-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="dual-process">
+                            <div class="process-column">
+                                <h5>Calcular Valor Futuro</h5>
+                                <ol>
+                                    <li>Identifica VP, i, n</li>
+                                    <li>Calcula (1 + i)ⁿ</li>
+                                    <li>Multiplica VP × factor</li>
+                                </ol>
+                            </div>
+                            <div class="process-column">
+                                <h5>Calcular Valor Presente</h5>
+                                <ol>
+                                    <li>Identifica VF, i, n</li>
+                                    <li>Calcula (1 + i)ⁿ</li>
+                                    <li>Divide VF ÷ factor</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="vp-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-project-diagram"></i>
+                                <h5>Evaluación de proyectos</h5>
+                                <p>Calcular VPN y TIR para decidir si invertir en un proyecto.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-handshake"></i>
+                                <h5>Negociaciones</h5>
+                                <p>Comparar ofertas de pago en diferentes momentos del tiempo.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-file-contract"></i>
+                                <h5>Contratos</h5>
+                                <p>Determinar pagos equivalentes en diferentes fechas.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-landmark"></i>
+                                <h5>Jubilación</h5>
+                                <p>Planificar cuánto ahorrar hoy para el retiro futuro.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora VP/VF -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Valor Presente/Futuro</h4>
+                    <div class="calc-type-selector">
+                        <button class="type-btn active" onclick="selectVPVFType('vf')">Calcular VF</button>
+                        <button class="type-btn" onclick="selectVPVFType('vp')">Calcular VP</button>
+                    </div>
+                    <div class="calculator-grid">
+                        <div class="calc-input" id="vpvf-valor-container">
+                            <label for="vpvf-valor">Valor Presente ($)</label>
+                            <input type="number" id="vpvf-valor" placeholder="10000" value="10000">
+                        </div>
+                        <div class="calc-input">
+                            <label for="vpvf-tasa">Tasa Anual (%)</label>
+                            <input type="number" id="vpvf-tasa" placeholder="8" value="8" step="0.1">
+                        </div>
+                        <div class="calc-input">
+                            <label for="vpvf-periodos">Períodos (años)</label>
+                            <input type="number" id="vpvf-periodos" placeholder="3" value="3">
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularVPVF()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="vpvf-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo: Estadística -->
+    <section id="estadistica" class="module-section">
+        <div class="module-header">
+            <h2><i class="fas fa-chart-bar"></i> Estadística para Negocios</h2>
+            <p>Análisis de datos para la toma de decisiones empresariales</p>
+        </div>
+
+        <!-- Medidas de Tendencia Central -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-bullseye"></i> Medidas de Tendencia Central</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'mtc-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mtc-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mtc-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mtc-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="mtc-que">
+                    <div class="info-box">
+                        <h4>Las Tres Medidas Principales</h4>
+                        <div class="measures-grid">
+                            <div class="measure-item">
+                                <h5>Media (Promedio)</h5>
+                                <div class="formula-box small">
+                                    <span class="formula">x̄ = Σxᵢ / n</span>
+                                </div>
+                                <p>Suma de todos los valores dividida entre la cantidad de datos.</p>
+                            </div>
+                            <div class="measure-item">
+                                <h5>Mediana</h5>
+                                <p>Valor central cuando los datos están ordenados. Divide el conjunto en dos partes iguales.</p>
+                            </div>
+                            <div class="measure-item">
+                                <h5>Moda</h5>
+                                <p>Valor que más se repite en el conjunto de datos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mtc-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué usar cada una?</h4>
+                        <div class="comparison-table">
+                            <div class="table-row header">
+                                <span>Medida</span>
+                                <span>Ventaja</span>
+                                <span>Cuándo usar</span>
+                            </div>
+                            <div class="table-row">
+                                <span><strong>Media</strong></span>
+                                <span>Usa todos los datos</span>
+                                <span>Datos simétricos sin valores extremos</span>
+                            </div>
+                            <div class="table-row">
+                                <span><strong>Mediana</strong></span>
+                                <span>No afectada por extremos</span>
+                                <span>Datos con valores atípicos (ej: salarios)</span>
+                            </div>
+                            <div class="table-row">
+                                <span><strong>Moda</strong></span>
+                                <span>Muestra lo más frecuente</span>
+                                <span>Datos categóricos o preferencias</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mtc-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="example-box">
+                            <p><strong>Datos:</strong> 5, 8, 12, 8, 15, 8, 20</p>
+
+                            <div class="step-example">
+                                <h5>Media:</h5>
+                                <p>1. Suma: 5+8+12+8+15+8+20 = 76</p>
+                                <p>2. Divide: 76 ÷ 7 = <strong>10.86</strong></p>
+                            </div>
+
+                            <div class="step-example">
+                                <h5>Mediana:</h5>
+                                <p>1. Ordena: 5, 8, 8, 8, 12, 15, 20</p>
+                                <p>2. Valor central (posición 4): <strong>8</strong></p>
+                            </div>
+
+                            <div class="step-example">
+                                <h5>Moda:</h5>
+                                <p>1. Cuenta frecuencias: 8 aparece 3 veces</p>
+                                <p>2. Moda = <strong>8</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mtc-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-users"></i>
+                                <h5>Recursos Humanos</h5>
+                                <p>Análisis de salarios (mediana evita distorsión por ejecutivos).</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <h5>Ventas</h5>
+                                <p>Producto más vendido (moda) y venta promedio (media).</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-warehouse"></i>
+                                <h5>Inventarios</h5>
+                                <p>Demanda promedio para planificar stock.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-star"></i>
+                                <h5>Satisfacción</h5>
+                                <p>Calificación promedio de clientes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Tendencia Central</h4>
+                    <div class="calc-input full-width">
+                        <label for="mtc-datos">Ingresa los datos (separados por coma)</label>
+                        <input type="text" id="mtc-datos" placeholder="5, 8, 12, 8, 15, 8, 20" value="5, 8, 12, 8, 15, 8, 20">
+                    </div>
+                    <button class="calc-btn" onclick="calcularTendenciaCentral()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="mtc-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desviación Estándar -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-arrows-alt-h"></i> Desviación Estándar y Varianza</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'de-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'de-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'de-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'de-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="de-que">
+                    <div class="info-box">
+                        <h4>Medidas de Dispersión</h4>
+                        <p>Indican qué tan <strong>dispersos o concentrados</strong> están los datos alrededor de la media.</p>
+                        <div class="formula-box">
+                            <span class="formula">σ² = Σ(xᵢ - x̄)² / n</span>
+                            <span class="formula-desc">Varianza</span>
+                        </div>
+                        <div class="formula-box">
+                            <span class="formula">σ = √σ²</span>
+                            <span class="formula-desc">Desviación Estándar</span>
+                        </div>
+                        <p class="note"><strong>Nota:</strong> Para muestras, se divide entre (n-1) en lugar de n.</p>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="de-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué es importante?</h4>
+                        <ul>
+                            <li><strong>Mide el riesgo:</strong> Mayor desviación = mayor incertidumbre.</li>
+                            <li><strong>Calidad:</strong> En manufactura, menor variación = mejor calidad.</li>
+                            <li><strong>Comparación:</strong> Permite comparar la variabilidad de diferentes conjuntos.</li>
+                        </ul>
+                        <div class="visual-comparison">
+                            <div class="dist-visual low">
+                                <span class="dist-label">Baja dispersión</span>
+                                <div class="dist-bars">
+                                    <div class="bar" style="height: 20%"></div>
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 100%"></div>
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 20%"></div>
+                                </div>
+                            </div>
+                            <div class="dist-visual high">
+                                <span class="dist-label">Alta dispersión</span>
+                                <div class="dist-bars">
+                                    <div class="bar" style="height: 80%"></div>
+                                    <div class="bar" style="height: 40%"></div>
+                                    <div class="bar" style="height: 60%"></div>
+                                    <div class="bar" style="height: 30%"></div>
+                                    <div class="bar" style="height: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="de-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="steps-container">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Calcular la media</h5>
+                                    <p>x̄ = Σxᵢ / n</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Restar la media a cada dato</h5>
+                                    <p>(xᵢ - x̄) para cada valor</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Elevar al cuadrado</h5>
+                                    <p>(xᵢ - x̄)² para eliminar negativos</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>Promediar los cuadrados</h5>
+                                    <p>Varianza = Σ(xᵢ - x̄)² / n</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">5</span>
+                                <div class="step-content">
+                                    <h5>Sacar raíz cuadrada</h5>
+                                    <p>σ = √Varianza</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="de-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-chart-area"></i>
+                                <h5>Finanzas</h5>
+                                <p>Medir volatilidad de inversiones y riesgo de portafolios.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-cogs"></i>
+                                <h5>Control de calidad</h5>
+                                <p>Monitorear variabilidad en procesos de producción.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-truck"></i>
+                                <h5>Logística</h5>
+                                <p>Variabilidad en tiempos de entrega.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-user-clock"></i>
+                                <h5>Recursos Humanos</h5>
+                                <p>Consistencia en evaluaciones de desempeño.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Dispersión</h4>
+                    <div class="calc-input full-width">
+                        <label for="de-datos">Ingresa los datos (separados por coma)</label>
+                        <input type="text" id="de-datos" placeholder="10, 12, 15, 18, 20" value="10, 12, 15, 18, 20">
+                    </div>
+                    <div class="calc-input">
+                        <label for="de-tipo">Tipo de cálculo</label>
+                        <select id="de-tipo">
+                            <option value="poblacion">Población (÷n)</option>
+                            <option value="muestra" selected>Muestra (÷n-1)</option>
+                        </select>
+                    </div>
+                    <button class="calc-btn" onclick="calcularDispersion()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="de-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo: Análisis de Costos -->
+    <section id="costos" class="module-section">
+        <div class="module-header">
+            <h2><i class="fas fa-balance-scale"></i> Análisis de Costos</h2>
+            <p>Herramientas para la planificación y control financiero</p>
+        </div>
+
+        <!-- Punto de Equilibrio -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-equals"></i> Punto de Equilibrio</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'pe-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'pe-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'pe-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'pe-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="pe-que">
+                    <div class="info-box">
+                        <h4>Definición</h4>
+                        <p>El <strong>punto de equilibrio</strong> es el nivel de ventas donde los ingresos totales igualan a los costos totales. No hay ganancia ni pérdida.</p>
+                        <div class="formula-box">
+                            <span class="formula">PE (unidades) = CF / (PV - CV)</span>
+                            <span class="formula-desc">PE ($) = CF / (1 - CV/PV)</span>
+                        </div>
+                        <ul class="variable-list">
+                            <li><strong>PE</strong> = Punto de Equilibrio</li>
+                            <li><strong>CF</strong> = Costos Fijos totales</li>
+                            <li><strong>PV</strong> = Precio de Venta unitario</li>
+                            <li><strong>CV</strong> = Costo Variable unitario</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="pe-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué es importante?</h4>
+                        <p>El punto de equilibrio es crucial porque:</p>
+                        <ul>
+                            <li><strong>Define el mínimo:</strong> Cuánto debes vender para no perder dinero.</li>
+                            <li><strong>Evalúa viabilidad:</strong> Si el PE es muy alto, el negocio puede ser riesgoso.</li>
+                            <li><strong>Planificación:</strong> Ayuda a establecer metas de ventas realistas.</li>
+                            <li><strong>Análisis de sensibilidad:</strong> Ver cómo cambios en precios o costos afectan la rentabilidad.</li>
+                        </ul>
+                        <div class="key-concept">
+                            <i class="fas fa-lightbulb"></i>
+                            <p><strong>Margen de Contribución:</strong> PV - CV = Lo que cada unidad aporta para cubrir costos fijos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="pe-como">
+                    <div class="info-box process">
+                        <h4>Proceso Paso a Paso</h4>
+                        <div class="example-box">
+                            <p><strong>Ejemplo:</strong> Una empresa tiene:</p>
+                            <ul>
+                                <li>Costos Fijos: $50,000/mes</li>
+                                <li>Precio de Venta: $100/unidad</li>
+                                <li>Costo Variable: $60/unidad</li>
+                            </ul>
+
+                            <div class="steps-container compact">
+                                <div class="step">
+                                    <span class="step-number">1</span>
+                                    <div class="step-content">
+                                        <p>Margen de Contribución = $100 - $60 = <strong>$40</strong></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">2</span>
+                                    <div class="step-content">
+                                        <p>PE = $50,000 / $40 = <strong>1,250 unidades</strong></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <span class="step-number">3</span>
+                                    <div class="step-content">
+                                        <p>PE en $ = 1,250 × $100 = <strong>$125,000</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="pe-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-rocket"></i>
+                                <h5>Nuevos productos</h5>
+                                <p>Evaluar viabilidad antes del lanzamiento.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-tags"></i>
+                                <h5>Estrategia de precios</h5>
+                                <p>Determinar precios mínimos sostenibles.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-cut"></i>
+                                <h5>Reducción de costos</h5>
+                                <p>Identificar impacto de cambios en costos.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-bullseye"></i>
+                                <h5>Metas de ventas</h5>
+                                <p>Establecer objetivos basados en rentabilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Punto de Equilibrio</h4>
+                    <div class="calculator-grid">
+                        <div class="calc-input">
+                            <label for="pe-cf">Costos Fijos ($)</label>
+                            <input type="number" id="pe-cf" placeholder="50000" value="50000">
+                        </div>
+                        <div class="calc-input">
+                            <label for="pe-pv">Precio de Venta ($)</label>
+                            <input type="number" id="pe-pv" placeholder="100" value="100">
+                        </div>
+                        <div class="calc-input">
+                            <label for="pe-cv">Costo Variable ($)</label>
+                            <input type="number" id="pe-cv" placeholder="60" value="60">
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularPuntoEquilibrio()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="pe-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Margen de Contribución -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-hand-holding-usd"></i> Margen de Contribución</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'mc-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mc-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mc-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'mc-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="mc-que">
+                    <div class="info-box">
+                        <h4>Definición</h4>
+                        <p>El <strong>margen de contribución</strong> es la diferencia entre el precio de venta y el costo variable. Representa cuánto "contribuye" cada unidad para cubrir los costos fijos y generar utilidad.</p>
+                        <div class="formula-box dual">
+                            <div class="formula-item">
+                                <span class="formula">MC = PV - CV</span>
+                                <span class="formula-label">Unitario ($)</span>
+                            </div>
+                            <div class="formula-item">
+                                <span class="formula">MC% = (MC/PV) × 100</span>
+                                <span class="formula-label">Porcentual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mc-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué es importante?</h4>
+                        <ul>
+                            <li><strong>Priorización:</strong> Productos con mayor MC generan más utilidad.</li>
+                            <li><strong>Decisiones de mezcla:</strong> Qué productos promover o descontinuar.</li>
+                            <li><strong>Negociación:</strong> Hasta dónde bajar precios sin perder.</li>
+                        </ul>
+                        <div class="comparison-box">
+                            <h5>Ejemplo Comparativo</h5>
+                            <div class="mc-comparison">
+                                <div class="mc-product">
+                                    <span class="product-name">Producto A</span>
+                                    <span class="mc-value">MC: $30 (30%)</span>
+                                </div>
+                                <div class="mc-product highlight">
+                                    <span class="product-name">Producto B</span>
+                                    <span class="mc-value">MC: $50 (50%)</span>
+                                    <span class="badge">Mejor opción</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mc-como">
+                    <div class="info-box process">
+                        <h4>Cálculo del Margen de Contribución</h4>
+                        <div class="steps-container">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div class="step-content">
+                                    <h5>Identificar precio y costo variable</h5>
+                                    <p>PV = precio al cliente, CV = materiales + mano de obra directa + comisiones</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div class="step-content">
+                                    <h5>Calcular MC unitario</h5>
+                                    <p>MC = PV - CV</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div class="step-content">
+                                    <h5>Calcular MC porcentual</h5>
+                                    <p>MC% = (MC / PV) × 100</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">4</span>
+                                <div class="step-content">
+                                    <h5>MC total (si aplica)</h5>
+                                    <p>MC Total = MC unitario × unidades vendidas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="mc-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-boxes"></i>
+                                <h5>Mezcla de productos</h5>
+                                <p>Decidir qué productos fabricar o promover más.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-ban"></i>
+                                <h5>Descontinuar líneas</h5>
+                                <p>Eliminar productos con MC negativo o muy bajo.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-percentage"></i>
+                                <h5>Descuentos</h5>
+                                <p>Calcular límite de descuentos sin perder dinero.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-industry"></i>
+                                <h5>Capacidad limitada</h5>
+                                <p>Maximizar utilidad cuando hay recursos escasos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Margen de Contribución</h4>
+                    <div class="calculator-grid">
+                        <div class="calc-input">
+                            <label for="mc-pv">Precio de Venta ($)</label>
+                            <input type="number" id="mc-pv" placeholder="100" value="100">
+                        </div>
+                        <div class="calc-input">
+                            <label for="mc-cv">Costo Variable ($)</label>
+                            <input type="number" id="mc-cv" placeholder="60" value="60">
+                        </div>
+                        <div class="calc-input">
+                            <label for="mc-unidades">Unidades (opcional)</label>
+                            <input type="number" id="mc-unidades" placeholder="1000" value="1000">
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularMargenContribucion()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="mc-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulo: Porcentajes -->
+    <section id="porcentajes" class="module-section">
+        <div class="module-header">
+            <h2><i class="fas fa-percent"></i> Porcentajes y Proporciones</h2>
+            <p>Cálculos esenciales para el análisis financiero</p>
+        </div>
+
+        <!-- Variaciones Porcentuales -->
+        <div class="topic-container">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <h3><i class="fas fa-chart-line"></i> Variaciones Porcentuales</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="topic-content">
+                <div class="explanation-tabs">
+                    <button class="tab-btn active" onclick="showTab(this, 'var-que')">¿Qué es?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'var-porque')">¿Por qué?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'var-como')">¿Cómo?</button>
+                    <button class="tab-btn" onclick="showTab(this, 'var-donde')">¿Dónde?</button>
+                </div>
+
+                <div class="tab-content active" id="var-que">
+                    <div class="info-box">
+                        <h4>Tipos de Cálculos con Porcentajes</h4>
+                        <div class="formula-box dual">
+                            <div class="formula-item">
+                                <span class="formula">Variación = ((Vf - Vi) / Vi) × 100</span>
+                                <span class="formula-label">Cambio porcentual</span>
+                            </div>
+                            <div class="formula-item">
+                                <span class="formula">Vf = Vi × (1 + %/100)</span>
+                                <span class="formula-label">Aumento</span>
+                            </div>
+                            <div class="formula-item">
+                                <span class="formula">Vf = Vi × (1 - %/100)</span>
+                                <span class="formula-label">Descuento</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="var-porque">
+                    <div class="info-box reason">
+                        <h4>¿Por qué usar porcentajes?</h4>
+                        <ul>
+                            <li><strong>Comparabilidad:</strong> Permite comparar cambios en diferentes escalas.</li>
+                            <li><strong>Estandarización:</strong> Un lenguaje común en finanzas y negocios.</li>
+                            <li><strong>Claridad:</strong> "Creció 20%" es más claro que "creció $5,000".</li>
+                        </ul>
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p><strong>Cuidado:</strong> Un descuento del 20% seguido de un aumento del 20% NO regresa al valor original. $100 - 20% = $80. $80 + 20% = $96</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="var-como">
+                    <div class="info-box process">
+                        <h4>Ejemplos Prácticos</h4>
+                        <div class="example-box">
+                            <div class="step-example">
+                                <h5>Calcular variación:</h5>
+                                <p>Ventas pasaron de $80,000 a $100,000</p>
+                                <p>Variación = ((100,000 - 80,000) / 80,000) × 100 = <strong>25%</strong></p>
+                            </div>
+
+                            <div class="step-example">
+                                <h5>Aplicar aumento:</h5>
+                                <p>Precio de $50 aumenta 15%</p>
+                                <p>Nuevo precio = $50 × (1 + 0.15) = <strong>$57.50</strong></p>
+                            </div>
+
+                            <div class="step-example">
+                                <h5>Aplicar descuento:</h5>
+                                <p>Producto de $200 con 30% de descuento</p>
+                                <p>Precio final = $200 × (1 - 0.30) = <strong>$140</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="var-donde">
+                    <div class="info-box application">
+                        <h4>Aplicaciones en Administración</h4>
+                        <div class="applications-grid">
+                            <div class="app-item">
+                                <i class="fas fa-file-alt"></i>
+                                <h5>Informes financieros</h5>
+                                <p>Variación de ventas, gastos, utilidades entre períodos.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-tag"></i>
+                                <h5>Promociones</h5>
+                                <p>Cálculo de descuentos y precios promocionales.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-chart-pie"></i>
+                                <h5>Participación de mercado</h5>
+                                <p>Porcentaje de ventas respecto al mercado total.</p>
+                            </div>
+                            <div class="app-item">
+                                <i class="fas fa-dollar-sign"></i>
+                                <h5>Márgenes</h5>
+                                <p>Margen bruto, operativo y neto como porcentaje.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculadora -->
+                <div class="calculator-section">
+                    <h4><i class="fas fa-calculator"></i> Calculadora de Porcentajes</h4>
+                    <div class="calc-type-selector">
+                        <button class="type-btn active" onclick="selectPorcentajeType('variacion')">Variación</button>
+                        <button class="type-btn" onclick="selectPorcentajeType('aumento')">Aumento</button>
+                        <button class="type-btn" onclick="selectPorcentajeType('descuento')">Descuento</button>
+                    </div>
+                    <div class="calculator-grid" id="porc-inputs">
+                        <div class="calc-input">
+                            <label for="porc-vi">Valor Inicial ($)</label>
+                            <input type="number" id="porc-vi" placeholder="80000" value="80000">
+                        </div>
+                        <div class="calc-input">
+                            <label for="porc-vf">Valor Final ($)</label>
+                            <input type="number" id="porc-vf" placeholder="100000" value="100000">
+                        </div>
+                    </div>
+                    <button class="calc-btn" onclick="calcularPorcentaje()">
+                        <i class="fas fa-play"></i> Calcular
+                    </button>
+                    <div class="result-section" id="porc-resultado">
+                        <div class="result-placeholder">
+                            <i class="fas fa-arrow-up"></i>
+                            <p>Ingresa los valores y presiona calcular</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <i class="fas fa-calculator"></i>
+                <span>MathBusiness</span>
+            </div>
+            <p>Matemáticas aplicadas para futuros administradores de empresas</p>
+            <div class="footer-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#financieras">Finanzas</a>
+                <a href="#estadistica">Estadística</a>
+                <a href="#costos">Costos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
